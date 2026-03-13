@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Середньовічна Бібліотека</title>
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+
+
+<body>
+	<header>
+    <h1> Середньовічна Бібліотека </h1>
+    <p>Вітаємо у сховищі стародавньої мудрості</p>
+  </header>
+<div class="container">
+    <h1>Середньовічна Бібліотека</h1>
+    <form id="book-form">
+      <input type="text" name="title" placeholder="Назва книги" required>
+      <input type="text" name="author" placeholder="Автор" required>
+      <input type="number" name="year" placeholder="Рік" required>
+      <button type="submit">Додати книгу</button>
+    </form>
+
+    <input type="text" id="search" placeholder="Пошук книги..." />
+
+    <ul id="book-list">
+      <li>Літопис Руський — Нестор (1113)</li>
+      <li>Summa Theologica — Фома Аквінський (1274)</li>
+      <li>De Civitate Dei — Августин Блаженний (426)</li>
+    </ul>
+  </div>
+  <footer>
+    <p>© 1325–2025 Середньовічна Бібліотека | Рукописне збереження знань</p>
+  </footer>
+
+  <script>
+    // Пошук по назві
+    document.getElementById('search').addEventListener('input', function () {
+      const query = this.value.toLowerCase();
+      const books = document.querySelectorAll('#book-list li');
+      books.forEach(book => {
+        book.style.display = book.textContent.toLowerCase().includes(query) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
